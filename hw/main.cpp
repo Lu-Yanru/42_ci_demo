@@ -1,6 +1,7 @@
 #include <iostream>
+#include <cstdlib>
 
 int main() {
 	std::cout << "Hello world!" << std::endl;
-	exit(1);
+	exit(0);
 }
