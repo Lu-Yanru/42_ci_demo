@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up C environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+          build-essential \
+          valgrind \
+          clang-format \
+          clang-tidy \
+          cppcheck \
+          libclang-18-dev \
+          python3-clang-18 \
+
+
+      - name: Build and test the project
+        run: cd hw && make test
