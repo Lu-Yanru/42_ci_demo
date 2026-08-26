@@ -1,9 +1,9 @@
 CPP = c++
 COMPILE_FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g -c
-LINK_FLAGS = 
+LINK_FLAGS =
 NAME = hw
 
-SRCS = main.cpp 
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -23,7 +23,7 @@ fclean: clean
 
 re: fclean all
 
-test: $(NAME)
+test: $(NAME) format-check
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 LINTERS_F = linters
